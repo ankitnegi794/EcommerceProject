@@ -11,11 +11,8 @@ export class HomePage extends BasePage{
         this.logInNavBtn = () => this.page.getByText('Login or register');
         this.cartBtn = () => this.page.getByRole('link', { name: '  Cart' })
         this.accountbtn = () => this.page.getByRole('link', { name: '  Account', exact: true })
-        //this.products = this.page.locator('//div[@id="shopify-section-1586282516064"]//product-item');
-        //this.cartPopup = this.page.getByText('MY BAG', { exact: false });
-        //this.subscribePopup =  this.page.getByText('SUBSCRIBE NOW')
-        //this.subscribePopupClosebtn = () => this.page.locator('.popup-subscription__close > .icon')
-        //this.logoutPopup = this.page.getByText('WELCOME', { exact: false});
+        this.products = () => this.page.locator('//div[@class="col-md-3 col-sm-6 col-xs-12"]');
+        
         
     }
 
@@ -31,12 +28,11 @@ export class HomePage extends BasePage{
     await this.page.goto('https://automationteststore.com/');
     await this.page.waitForLoadState('networkidle');
   }
-/*
+
   async productCatalogClick(){
-    await this.products.first().click();
- 
+    await this.products().first().click();
 }
-    */
+    
   async clickLoginLink(){
     await this.logInNavBtn().click();
  
